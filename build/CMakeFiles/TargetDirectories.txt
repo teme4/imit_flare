@@ -1,0 +1,8 @@
+C:/Users/a.vasilchenko/Videos/imit_flare/build/CMakeFiles/edit_cache.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/CMakeFiles/rebuild_cache.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMakeFiles/imit_flame.elf.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMakeFiles/edit_cache.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMSIS/CMakeFiles/cmsis.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMSIS/CMakeFiles/edit_cache.dir
+C:/Users/a.vasilchenko/Videos/imit_flare/build/src/CMSIS/CMakeFiles/rebuild_cache.dir
