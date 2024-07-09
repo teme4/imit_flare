@@ -39,7 +39,7 @@ void gpio::gpio_conf(GPIO_TypeDef * port, uint32_t pin, uint8_t mode)
     {
         return 1;
     }
-	else 
+	else
     {
         return 0;
     }

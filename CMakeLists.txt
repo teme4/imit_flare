@@ -25,7 +25,18 @@ enable_language(C CXX ASM)
 #!  ************************************************************************************************************************** #!
 #!  **************************************************** { OPTIONS } ********************************************************* #!
 #!  ************************************************************************************************************************** #!
+ADD_DEFINITIONS(
+                -DSTM32F103xB
+                -DSTM32F1
+                #-DLoggerPrintStages
+                #-DStartControlLOGS
+                #-DBOB
+                #-DStartControlLOGS
+                #-DIrps5401_LOGS
+                #-DPacketInterface_TypeC
+                #-DF_CPU=72000000L
 
+                )
 #-- Linker script --------------------------------------------------------------
 SET(LDSCRIPT ${CMAKE_SOURCE_DIR}/src/CMSIS/STM32F103C8_FLASH.ld)
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LDSCRIPT} -Wl,-Map=${CMAKE_BINARY_DIR}/${PROJECT_NAME}.map -Wl,--print-memory-usage")
@@ -45,18 +56,7 @@ add_compile_options(
 #!  ********************************************* { GLOBAL PROPERTIES } ****************************************************** #!
 #!  ************************************************************************************************************************** #!
 
-ADD_DEFINITIONS(
-                -DSTM32F103xB
-                -DSTM32F1
-                #-DLoggerPrintStages
-                #-DStartControlLOGS
-                #-DBOB
-                #-DStartControlLOGS
-                #-DIrps5401_LOGS
-                #-DPacketInterface_TypeC
-                #-DF_CPU=72000000L
 
-                )
 
 # configure_file(${CMAKE_SOURCE_DIR}/src/ProjectConfig/CONFIG.hpp.in
 #                ${CMAKE_SOURCE_DIR}/src/ProjectConfig/CONFIG_OUT.hpp @ONLY)

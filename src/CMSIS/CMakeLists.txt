@@ -13,7 +13,7 @@ target_include_directories(
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Device/ST/STM32F1xx/Include
          ${CMAKE_CURRENT_SOURCE_DIR}/Include
          ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc)
-
+message(${CMAKE_CURRENT_SOURCE_DIR}/Device/ST/STM32F1xx/Include)
 target_include_directories(cmsis PUBLIC .)
 
 set_target_properties(

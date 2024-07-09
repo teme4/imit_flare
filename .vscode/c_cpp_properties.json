@@ -1,14 +1,8 @@
-//
-// !!! WARNING !!! AUTO-GENERATED FILE!
-// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
-// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
-//
 {
     "configurations": [
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/a.vasilchenko/Videos/imit_flare/include",
                 "C:/Users/a.vasilchenko/Videos/imit_flare/src",
                 "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis/CMSIS/Include",
                 "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis-stm32f1/Include",
@@ -17,7 +11,6 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/a.vasilchenko/Videos/imit_flare/include",
                     "C:/Users/a.vasilchenko/Videos/imit_flare/src",
                     "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis/CMSIS/Include",
                     "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis-stm32f1/Include",
@@ -26,7 +19,7 @@
             },
             "defines": [
                 "PLATFORMIO=60115",
-                "STM32F103xE",
+                "STM32F103xB",
                 "STM32F1",
                 "F_CPU=72000000L",
                 ""
