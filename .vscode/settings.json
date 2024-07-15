@@ -1,39 +1,35 @@
 {
-  "mesonbuild.configureOnOpen": false,
-  "C_Cpp_Runner.msvcBatchPath": "",
-  "C_Cpp_Runner.cCompilerPath": "gcc",
-  "C_Cpp_Runner.cppCompilerPath": "g++",
-  "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.cStandard": "",
-  "C_Cpp_Runner.cppStandard": "",
-  "C_Cpp_Runner.useMsvc": false,
-  "C_Cpp_Runner.warnings": [
-    "-Wall",
-    "-Wextra",
-    "-Wpedantic",
-    "-Wshadow",
-    "-Wformat=2",
-    "-Wconversion",
-    "-Wnull-dereference",
-    "-Wsign-conversion"
-  ],
-  "C_Cpp_Runner.enableWarnings": true,
-  "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.linkerArgs": [],
-  "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
-  "C_Cpp_Runner.excludeSearch": [
-    "**/build",
-    "**/build/**",
-    "**/.*",
-    "**/.*/**",
-    "**/.vscode",
-    "**/.vscode/**"
-  ],
-  "C_Cpp_Runner.useAddressSanitizer": false,
-  "C_Cpp_Runner.showCompilationTime": false
+    "cmake.configureOnOpen": true,
+    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10\bin",
+    "cortex-debug.stlinkPath.windows": "C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin",
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(checklist) Build",
+            "task": "Build",
+            "tooltip": "🛠️ Start the \"build\" task"
+        },
+        {
+            "label": "$(clear-all) Clean build",
+            "task": "Clean project",
+            "tooltip": "🧹 Start a \"clean\" task"
+        },
+        {
+            "label": "$(output) Config",
+            "task": "config",
+            "tooltip": "Config"
+        },
+        {
+            "label": "$(run) Run",
+            "task": "flash",
+            "tooltip": "Build and run"
+        },
+        {
+            "label": "$(close) Full-Erase",
+            "task": "full chip erase",
+            "tooltip": "full chip erase"
+        },
+    ],
+    "cmake.configureSettings": {
+        "prj_name": "${workspaceFolderBasename}"
+    }
 }

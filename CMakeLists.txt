@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.20)
 #!  ********************************************* { GENERAL INFORMATION } **************************************************** #!
 #!  ************************************************************************************************************************** #!
 set(MCU STM32F103C8)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_SYSTEM_NAME    Generic)
 set(CMAKE_SYSTEM_VERSION        1)
 set(CMAKE_SYSTEM_PROCESSOR    arm)
@@ -28,6 +28,7 @@ enable_language(C CXX ASM)
 ADD_DEFINITIONS(
                 -DSTM32F103xB
                 -DSTM32F1
+                # --verbose
                 #-DLoggerPrintStages
                 #-DStartControlLOGS
                 #-DBOB
@@ -40,6 +41,7 @@ ADD_DEFINITIONS(
 #-- Linker script --------------------------------------------------------------
 SET(LDSCRIPT ${CMAKE_SOURCE_DIR}/src/CMSIS/STM32F103C8_FLASH.ld)
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LDSCRIPT} -Wl,-Map=${CMAKE_BINARY_DIR}/${PROJECT_NAME}.map -Wl,--print-memory-usage")
+
 
 add_compile_options(
                         -Wno-unused-function
@@ -57,10 +59,6 @@ add_compile_options(
 #!  ************************************************************************************************************************** #!
 
 
-
-# configure_file(${CMAKE_SOURCE_DIR}/src/ProjectConfig/CONFIG.hpp.in
-#                ${CMAKE_SOURCE_DIR}/src/ProjectConfig/CONFIG_OUT.hpp @ONLY)
-
 set_property(GLOBAL PROPERTY
                             C_STANDARD 11
                             #CXX_STANDARD_REQUIRED YES
@@ -68,7 +66,7 @@ set_property(GLOBAL PROPERTY
 )
 
 #распечатывает defines
-get_directory_property( DirDefs COMPILE_DEFINITIONS )
+get_directory_property(DirDefs COMPILE_DEFINITIONS )
 message( "COMPILE_DEFINITIONS = ${DirDefs}" )
 
 

@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "STM32",
             "type": "cortex-debug",
@@ -16,7 +15,7 @@
                 "./cmake/Debug/openocd.cfg "
             ],
             "runToEntryPoint": "main",
-            "preLaunchTask": "🧾Build project🧾",
+            "preLaunchTask": "Build",
             "showDevDebugOutput": "raw",
             "internalConsoleOptions": "openOnSessionStart",
         }

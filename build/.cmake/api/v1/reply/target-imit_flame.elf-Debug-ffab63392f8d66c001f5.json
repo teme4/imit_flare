@@ -30,7 +30,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 24,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
@@ -45,7 +45,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 44,
+				"line" : 46,
 				"parent" : 3
 			},
 			{
@@ -57,13 +57,13 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 28,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 25,
+				"line" : 24,
 				"parent" : 0
 			}
 		]
@@ -128,6 +128,10 @@
 			[
 				{
 					"backtrace" : 6,
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src"
+				},
+				{
+					"backtrace" : 6,
 					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS"
 				},
 				{
@@ -135,12 +139,12 @@
 					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
-					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Include"
+					"backtrace" : 6,
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Core/Inc"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Core/Inc"
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Include"
 				},
 				{
 					"backtrace" : 2,
@@ -214,6 +218,10 @@
 			[
 				{
 					"backtrace" : 6,
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src"
+				},
+				{
+					"backtrace" : 6,
 					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS"
 				},
 				{
@@ -221,12 +229,12 @@
 					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
-					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Include"
+					"backtrace" : 6,
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Core/Inc"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Core/Inc"
+					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Include"
 				},
 				{
 					"backtrace" : 2,
@@ -238,89 +246,7 @@
 			[
 				8,
 				9,
-				10
-			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-g"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-function"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-variable"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-return-type"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-comment"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-but-set-variable"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-parameter"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-value"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-unused-label"
-				},
-				{
-					"backtrace" : 4,
-					"fragment" : "-Wno-narrowing"
-				}
-			],
-			"defines" : 
-			[
-				{
-					"backtrace" : 5,
-					"define" : "STM32F1"
-				},
-				{
-					"backtrace" : 5,
-					"define" : "STM32F103xB"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 6,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Device/ST/STM32F1xx/Include"
-				},
-				{
-					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Include"
-				},
-				{
-					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/Core/Inc"
-				},
-				{
-					"backtrace" : 2,
-					"path" : "C:/Users/a.vasilchenko/Videos/imit_flare/src/CMSIS/."
-				}
-			],
-			"language" : "ASM",
-			"sourceIndexes" : 
-			[
+				10,
 				11
 			]
 		}
@@ -372,7 +298,8 @@
 				3,
 				8,
 				9,
-				10
+				10,
+				11
 			]
 		},
 		{
@@ -383,13 +310,6 @@
 				5,
 				6,
 				7
-			]
-		},
-		{
-			"name" : "",
-			"sourceIndexes" : 
-			[
-				11
 			]
 		}
 	],
@@ -459,9 +379,9 @@
 		},
 		{
 			"backtrace" : 2,
-			"compileGroupIndex" : 2,
-			"path" : "src/CMSIS/Core/Startup/startup_stm32f103xb.s",
-			"sourceGroupIndex" : 2
+			"compileGroupIndex" : 1,
+			"path" : "src/CMSIS/Core/Startup/startup_stm32f103xb.c",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

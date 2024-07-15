@@ -6,7 +6,7 @@ target_sources(
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/syscalls.c
          ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sysmem.c
          ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32f1xx.c
-         ${CMAKE_CURRENT_SOURCE_DIR}/Core/Startup/startup_stm32f103xb.s)
+         ${CMAKE_CURRENT_SOURCE_DIR}/Core/Startup/startup_stm32f103xb.c)
 
 target_include_directories(
   cmsis

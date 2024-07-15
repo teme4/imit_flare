@@ -1256,6 +1256,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "C:/Users/a.vasilchenko/Videos/imit_flare"
+		},
+		{
+			"name" : "prj_name",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "No help, variable specified on the command line."
+				}
+			],
+			"type" : "STRING",
+			"value" : "imit_flare"
 		}
 	],
 	"kind" : "cache",

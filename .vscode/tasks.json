@@ -1,26 +1,519 @@
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🧾Build project🧾",
+// 			"type": "shell",
+// 			"dependsOn": "🛠️CMake Configure🛠️",
+// 			"command": "cmake",
+// 			"args": [
+// 				"--build",
+// 				"${workspaceRoot}/build",
+// 				"\"--config Release\"", // "--target",
+// 				"\"--target all\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🧾Build project (Script .bat)🧾",
+// 			"type": "shell",
+// 			//"dependsOn": "🛠️CMake Configure🛠️",
+// 			"command": "${workspaceRoot}/compile.bat",
+// 			// "args": [
+// 			//   "--build",
+// 			//   "${workspaceRoot}/build",
+// 			//   "\"--config Release\""	,			// "--target",
+// 			//   "\"--target all\""
+// 			// ],
+// 			// "options": {
+// 			//   "cwd": "${workspaceRoot}",
+// 			// },
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🛠CMake Configure🛠",
+// 			"type": "shell",
+// 			"dependsOn": "🗑Cleanup files🗑",
+// 			"command": "cmake.exe",
+// 			"args": [
+// 				"\"--log-level=STATUS\"",
+// 				"\"--no-warn-unused-cli\"",
+// 				"\"-DCMAKE_BUILD_TYPE:STRING=Debug\"",
+// 				"\"-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE\"",
+// 				"\"-DCMAKE_C_COMPILER:FILEPATH=C:/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe\"",
+// 				"\"-DCMAKE_CXX_COMPILER:FILEPATH=C:/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-g++.exe\"",
+// 				/////////////////////////////
+// 				"\"-DBOARD_TYPE=BOB\"", //1-bob 0-alice
+// 				/////////////////////////////
+// 				"\"-S ${workspaceRoot}\"",
+// 				"\"-B ${workspaceRoot}/build\"",
+// 				"\"-G Ninja\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🗑Cleanup files🗑",
+// 			"type": "shell",
+// 			"command": "cmake.exe",
+// 			"args": [
+// 				"\"-E rm -rf\"",
+// 				"${workspaceRoot}/build"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "📥Flash📦",
+// 			"type": "shell",
+// 			"dependsOn": "🧾Build project🧾",
+// 			"command": "openocd.exe",
+// 			"args": [
+// 				"-f",
+// 				"interface/stlink.cfg",
+// 				"-c transport select hla_swd",
+// 				"-f",
+// 				"target/stm32f1x.cfg",
+// 				"-c program ./build/imit_flame.elf verify reset exit"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "📤Download Firmware🗳️",
+// 			"type": "shell",
+// 			"command": "openocd.exe",
+// 			"args": [
+// 				"-f",
+// 				"${workspaceRoot}/cmake/Debug/openocd.cfg",
+// 				"-c init",
+// 				"-c halt",
+// 				"-c reset init",
+// 				"-c halt",
+// 				"-c flash read_bank 0 ./build/Downloaded.hex",
+// 				"-c exit"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🔪Reset Target MCU🔪",
+// 			"type": "shell",
+// 			"command": "openocd.exe -f \"interface/cmsis-dap.cfg\" -c \"transport select swd\" -f \"target/mdr32f9q2i.cfg\" -c \"init\" -c \"halt\" -c \"reset init\" -c \"exit\"",
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "⚙️Connect to GDB⚙️",
+// 			"type": "shell",
+// 			"command": "arm-none-eabi-gdb.exe ./build/imit_flame.elf",
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 		{
+// 			"label": "🧾Open COM Port🧾",
+// 			"type": "shell",
+// 			"command": "platformio.exe ",
+// 			"args": [
+// 				"\"device monitor\"",
+// 				"\"--port COM17\"",
+// 				"\"--baud 2000000\"",
+// 				"\"--echo\"",
+// 				//"\"--raw\"",
+// 				"\"--filter printable\"",
+// 				"\"--filter log2file\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		//* ******************************************************************************************************************************************* *//
+// 		//* ******************************************************************************************************************************************* *//
+// 	]
+// }
+// ////////////////////////////////////////////////////////////////////////
+// /*
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "shell",
+// 			"label": "Build Alpine",
+// 			"command": "docker",
+// 			"args": [
+// 				"buildx",
+// 				"build",
+// 				"--platform",
+// 				"linux/amd64,linux/arm64",
+// 				"-t",
+// 				"quantscav/alpine_stm:1.1.0",
+// 				"-f",
+// 				"${workspaceRoot}/.devcontainer/Dockerfile",
+// 				"--load",
+// 				"."
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}"
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "🧾Build project🧾",
+// 			"type": "shell",
+// 			"dependsOn": "🛠️CMake Configure🛠️",
+// 			"command": "cmake",
+// 			"args": [
+// 				"--build",
+// 				"${workspaceRoot}/build",
+// 				"\"--config Release\""	,			// "--target",
+// 				"\"--target all\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "🧾Open COM Port🧾",
+// 			"type": "shell",
+// 			"command": "platformio.exe ",
+// 			"args": [
+// 				"\"device monitor\"",
+// 				"\"--port COM17\"",
+// 				"\"--baud 2000000\"",
+// 				"\"--echo\"",
+// 				//"\"--raw\"",
+// 				"\"--filter printable\"",
+// 				"\"--filter log2file\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "🛠️CMake Configure🛠️",
+// 			"type": "shell",
+// 			"dependsOn": "🗑️Cleanup files🗑️",
+// 			"command": "cmake",
+// 			"args": [
+// 				"\"--log-level=STATUS\"",
+// 				"\"--no-warn-unused-cli\"",
+// 				"\"-DCMAKE_BUILD_TYPE:STRING=Debug\"",
+// 				"\"-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE\"",
+// 				"\"-S ${workspaceRoot}\"",
+// 				"\"-B ${workspaceRoot}/build\"",
+// 				"\"-G Ninja\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "🗑️Cleanup files🗑️",
+// 			"type": "shell",
+// 			"command": "cmake",
+// 			"args": [
+// 				//"\"-E rm -rf\"",
+// 				"--build",
+// 				"${workspaceRoot}/build",
+// 				"--target clean"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"type": "shell",
+// 			"label": "Linux: Reset Device",
+// 			"command": "st-flash",
+// 			"args": [
+// 				"reset"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "📥Flash Firmware📦",
+// 			"type": "shell",
+// 			"dependsOn": "🧾Build project🧾",
+// 			"command": "openocd",
+// 			"args": [
+// 				"-f",
+// 				"interface/stlink.cfg",
+// 				"-f",
+//                 "target/stm32f1x.cfg",
+// 				"-c program ./build/debug.elf verify reset exit"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		},
+// 		{
+// 			"type": "shell",
+// 			"label": "Linux: 📥Flash Firmware📦",
+// 			"command": "st-flash",
+// 			"args": [
+// 				"--reset",
+// 				"write",
+// 				"${command:cmake.launchTargetDirectory}/${command:cmake.buildTargetName}.bin",
+// 				"0x08000000"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "📤Download Firmware🗳️",
+// 			"type": "shell",
+// 			"command": "openocd.exe",
+// 			"args": [
+// 				"-f",
+// 				"${workspaceRoot}/openocd.cfg",
+// 				"-c init",
+// 				"-c halt",
+// 				"-c reset init",
+// 				"-c halt",
+// 				"-c flash read_bank 0 ./build/Downloaded.hex",
+// 				"-c exit"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "🔪Reset STM32🔪",
+// 			"type": "shell",
+// 			"command": "openocd.exe",
+// 			"args": [
+// 				"-f",
+// 				"${workspaceRoot}/openocd.cfg",
+// 				"-c init",
+// 				"-c halt",
+// 				"-c reset init",
+// 				"-c exit"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		},
+// 		{
+// 			"label": "⚙️Connect to GDB⚙️",
+// 			"type": "shell",
+// 			"command": "arm-none-eabi-gdb.exe ${command:cmake.launchTargetPath}",
+// 			"options": {
+// 				"cwd": "${workspaceRoot}",
+// 				"shell": {
+// 					"executable": "cmd.exe",
+// 					"args": [
+// 						"/C"
+// 					]
+// 				}
+// 			},
+// 			"group": {
+// 				"kind": "test",
+// 				"isDefault": true
+// 			},
+// 			"problemMatcher": []
+// 		}
+// 		//		  {
+// 		//			  "label": "🧪Run Tests"
+// 		//		  }
+// 	]
+// }
+// */
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "command": "msbuild",
-            "args": [
-                // Ask msbuild to generate full paths for file names.
-                "/property:GenerateFullPaths=true",
-                "/t:build",
-                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "group": "build",
-            "presentation": {
-                // Reveal the output only if unrecognized errors occur.
-                "reveal": "silent"
-            },
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
-            "problemMatcher": "$msCompile"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build",
+			"type": "cmake",
+			"command": "build",
+			"problemMatcher": "$gcc",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Clean project",
+			"type": "cmake",
+			"command": "clean",
+			"problemMatcher": "$gcc",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		},
+		{
+			"type": "cmake",
+			"command": "configure",
+			"label": "config",
+			"problemMatcher": "$gcc",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		},
+		{
+			"type": "shell",
+			"label": "flash",
+			"command": "STM32_Programmer_CLI.exe",
+			"args": [
+				"-c port=SWD freq=4000",
+				"-w ${workspaceFolder}/build/imit_flame.elf 0x0800000",
+				"-g"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"dependsOn": "Build",
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "Builds project and flashes firmware."
+		},
+		{
+			"type": "shell",
+			"label": "full chip erase",
+			"command": "STM32_Programmer_CLI.exe",
+			"args": [
+				"-c port=SWD freq=4000",
+				"-e all"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "full chip erase"
+		},
+	]
 }

@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
 
-
 add_subdirectory(CMSIS)
 
 set(SOURCE_FILES_
@@ -22,17 +21,20 @@ ${CMAKE_CURRENT_SOURCE_DIR}/main.hpp
 set(MyPROJECT "${PROJECT_NAME}.elf")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
 add_executable(${MyPROJECT})
-target_sources(${MyPROJECT} PRIVATE ${SOURCE_FILES_} ${HEADERS_FILES_})
-
+target_sources(${MyPROJECT} PUBLIC ${SOURCE_FILES_} ${HEADERS_FILES_})
 
 target_include_directories(${MyPROJECT} PUBLIC
-                                        ${CMAKE_CURRENT_SOURCE_DIR}/CMSIS
+                                        ${CMAKE_CURRENT_SOURCE_DIR}/
+                                        ${CMAKE_CURRENT_SOURCE_DIR}/CMSIS/
                                         ${CMAKE_CURRENT_SOURCE_DIR}/CMSIS/Device/ST/STM32F1xx/Include/
+                                        ${CMAKE_CURRENT_SOURCE_DIR}/CMSIS/Core/Inc
 )
 
 target_link_libraries(${MyPROJECT} PUBLIC
-                                            cmsis
+                                        cmsis
 )
+
+
 
 function(convert_to_hex TARGET)
     add_custom_command(
@@ -49,6 +51,8 @@ function(convert_to_bin TARGET)
     	BYPRODUCTS ${EXECUTABLE_OUTPUT_PATH}/${PROJECT_NAME}.bin
     )
 endfunction()
+
+
 
 convert_to_hex(${MyPROJECT})
 convert_to_bin(${MyPROJECT})

@@ -20,16 +20,6 @@ rule CUSTOM_COMMAND
 
 
 #############################################
-# Rule for compiling ASM files.
-
-rule ASM_COMPILER__imit_flame.2eelf_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\PROGRA~2\GNUARM~1\102021~1.10\bin\AR19DD~1.EXE $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building ASM object $out
-
-
-#############################################
 # Rule for compiling C files.
 
 rule C_COMPILER__imit_flame.2eelf_unscanned_Debug
@@ -56,16 +46,6 @@ rule CXX_EXECUTABLE_LINKER__imit_flame.2eelf_Debug
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\PROGRA~2\GNUARM~1\102021~1.10\bin\AR10B2~1.EXE $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
-
-
-#############################################
-# Rule for compiling ASM files.
-
-rule ASM_COMPILER__cmsis_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\PROGRA~2\GNUARM~1\102021~1.10\bin\AR19DD~1.EXE $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building ASM object $out
 
 
 #############################################

@@ -240,6 +240,9 @@ imit_flame_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 imit_flame_SOURCE_DIR:STATIC=C:/Users/a.vasilchenko/Videos/imit_flare
 
+//No help, variable specified on the command line.
+prj_name:STRING=imit_flare
+
 
 ########################
 # INTERNAL cache entries

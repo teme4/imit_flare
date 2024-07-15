@@ -1,35 +1,16 @@
 {
     "configurations": [
         {
-            "name": "PlatformIO",
+            "name": "Win32",
             "includePath": [
-                "C:/Users/a.vasilchenko/Videos/imit_flare/src",
-                "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis/CMSIS/Include",
-                "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis-stm32f1/Include",
-                ""
+                "${workspaceFolder}/**"
             ],
-            "browse": {
-                "limitSymbolsToIncludedHeaders": true,
-                "path": [
-                    "C:/Users/a.vasilchenko/Videos/imit_flare/src",
-                    "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis/CMSIS/Include",
-                    "C:/Users/a.vasilchenko/.platformio/packages/framework-cmsis-stm32f1/Include",
-                    ""
-                ]
-            },
             "defines": [
-                "PLATFORMIO=60115",
-                "STM32F103xB",
-                "STM32F1",
-                "F_CPU=72000000L",
-                ""
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ],
-            "compilerPath": "C:/Users/a.vasilchenko/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc.exe",
-            "compilerArgs": [
-                "-mthumb",
-                "-mcpu=cortex-m3",
-                ""
-            ]
+            "intelliSenseMode": "windows-msvc-x64"
         }
     ],
     "version": 4
